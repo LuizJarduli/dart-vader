@@ -9,6 +9,8 @@ environment:
 # Add regular dependencies here.
 dependencies:
   args: ^2.5.0
+  cli_completion: ^0.5.1
+  path: ^1.9.1
 
 dev_dependencies:
   husky: ^0.1.7
