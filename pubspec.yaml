@@ -1,4 +1,4 @@
-name: dart_vader
+name: spawn_dart_vader
 description: A for fun project to make use of my studies of making executable dart packages.
 version: 0.0.1
 repository: https://github.com/LuizJarduli/dart-vader
@@ -17,3 +17,7 @@ dev_dependencies:
   lints: ^5.0.0
   test: ^1.24.0
   very_good_analysis: ^7.0.0
+
+executables: 
+  spawn_dart_vader:
+
