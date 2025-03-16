@@ -1,16 +1,6 @@
-import 'package:args/args.dart';
 import 'package:cli_completion/cli_completion.dart';
-
-extension on ArgParser {
-  void addCommonFlags() {
-    addFlag(
-      'version',
-      abbr: 'v',
-      negatable: false,
-      help: 'Get the current package version.',
-    );
-  }
-}
+import 'package:dart_vader_cli/src/commands/version.dart';
+import 'package:mason_logger/mason_logger.dart' show Logger;
 
 /// {@template dart_vader_cli_command_runner}
 /// [DartVaderCliCommandRunner] is a [CompletionCommandRunner] class
@@ -18,9 +8,13 @@ extension on ArgParser {
 /// {@endtemplate}
 class DartVaderCliCommandRunner extends CompletionCommandRunner<int> {
   /// {@macro dart_vader_cli_command_runner}
-  DartVaderCliCommandRunner() : super(_executableName, _description) {
-    argParser.addCommonFlags();
+  DartVaderCliCommandRunner()
+    : _logger = Logger(),
+      super(_executableName, _description) {
+    addCommand(VersionCommand(_logger));
   }
+
+  final Logger _logger;
 
   static String get _executableName => 'dart-vader';
 
