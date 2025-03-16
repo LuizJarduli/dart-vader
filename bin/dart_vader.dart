@@ -1,57 +1,15 @@
-import 'package:args/args.dart';
+import 'dart:io';
 
-const String version = '0.0.1';
+import 'package:dart_vader_cli/src/dart_vader_cli_command_runner.dart';
 
-ArgParser buildParser() {
-  return ArgParser()
-    ..addFlag(
-      'help',
-      abbr: 'h',
-      negatable: false,
-      help: 'Print this usage information.',
-    )
-    ..addFlag(
-      'verbose',
-      abbr: 'v',
-      negatable: false,
-      help: 'Show additional command output.',
-    )
-    ..addFlag('version', negatable: false, help: 'Print the tool version.');
+void main(List<String> arguments) async {
+  await flushThenExit(await DartVaderCliCommandRunner().run(arguments));
 }
 
-void printUsage(ArgParser argParser) {
-  print('Usage: dart dart_vader.dart <flags> [arguments]');
-  print(argParser.usage);
-}
-
-void main(List<String> arguments) {
-  final argParser = buildParser();
-  try {
-    final results = argParser.parse(arguments);
-    var verbose = false;
-
-    // Process the parsed arguments.
-    if (results.flag('help')) {
-      printUsage(argParser);
-      return;
-    }
-    if (results.flag('version')) {
-      print('dart_vader version: $version');
-      return;
-    }
-    if (results.flag('verbose')) {
-      verbose = true;
-    }
-
-    // Act on the arguments provided.
-    print('Positional arguments: ${results.rest}');
-    if (verbose) {
-      print('[VERBOSE] All arguments: ${results.arguments}');
-    }
-  } on FormatException catch (e) {
-    // Print usage information if an invalid argument was provided.
-    print(e.message);
-    print('');
-    printUsage(argParser);
-  }
+/// Credits to felangel [mason_cli](https://github.com/felangel/mason/blob/master/packages/mason_cli/bin/mason.dart)
+Future<dynamic> flushThenExit(int? status) {
+  return Future.wait<void>([
+    stdout.close(),
+    stderr.close(),
+  ]).then<void>((_) => exit(status ?? 1));
 }
