@@ -1,0 +1,17 @@
+name: dart_vader
+description: A for fun project to make use of my studies of making executable dart packages.
+version: 0.0.1
+repository: https://github.com/LuizJarduli/dart-vader
+
+environment:
+  sdk: ^3.7.2
+
+# Add regular dependencies here.
+dependencies:
+  args: ^2.5.0
+
+dev_dependencies:
+  husky: ^0.1.7
+  lints: ^5.0.0
+  test: ^1.24.0
+  very_good_analysis: ^7.0.0
