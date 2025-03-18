@@ -1,6 +1,6 @@
 # dart-vader-cli
 
-A command-line interface tool that brings the Dark Side of the Force to your terminal.
+A command-line interface tool that brings the Dark Side of the Force to your terminal. Greatly inspired by [mason_cli](https://github.com/felangel/mason) package. 
 
 ## Features
 
