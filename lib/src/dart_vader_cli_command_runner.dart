@@ -16,8 +16,10 @@ class DartVaderCliCommandRunner extends CompletionCommandRunner<int> {
     : _logger = Logger(),
       _audioPlayerService = AudioPlayerService(audioPlayer: _audioPlayer),
       super(_executableName, _description) {
-    addCommand(VersionCommand(_logger));
+    addCommand(VersionCommand(_logger, _audioPlayerService));
     addCommand(NoCommand(_logger, _audioPlayerService));
+    addCommand(ImYourFatherCommand(_logger, _audioPlayerService));
+    addCommand(BreathingCommand(_logger, _audioPlayerService));
   }
 
   final Logger _logger;

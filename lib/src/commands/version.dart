@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:args/command_runner.dart';
+import 'package:dart_vader_cli/src/commands/base_audio_player.dart';
 import 'package:dart_vader_cli/src/utils/figlet_log.dart';
 import 'package:dart_vader_cli/src/version.dart';
 import 'package:mason_logger/mason_logger.dart';
@@ -8,11 +9,9 @@ import 'package:mason_logger/mason_logger.dart';
 /// {@template dart_vader_cli_version}
 /// Dart vader cli display version [Command].
 /// {@endtemplate}
-class VersionCommand extends Command<int> {
+class VersionCommand extends BaseAudioPlayerCommand {
   /// {@macro dart_vader_cli_version}
-  VersionCommand(this._logger);
-
-  final Logger _logger;
+  VersionCommand(super.logger, super.audioPlayerService);
 
   @override
   String get description =>
@@ -21,15 +20,21 @@ class VersionCommand extends Command<int> {
   @override
   String get name => 'version';
 
+  @override
+  String get assetName => 'dart_vader_imperial_theme.mp3';
+
   String get _packageName => 'Dart Vader Cli';
 
   @override
-  FutureOr<int>? run() async {
+  FutureOr<int> run() async {
     final figletText = red.wrap(await FigletLog.getText(_packageName));
 
-    _logger
+    logger
       ..info(figletText)
       ..info('Dart vader cli version: $packageVersion');
+
+    await playCommand();
+
     return ExitCode.success.code;
   }
 }
