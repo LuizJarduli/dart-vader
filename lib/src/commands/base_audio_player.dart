@@ -12,7 +12,7 @@ import 'package:meta/meta.dart';
 /// {@endtemplate}
 abstract class BaseAudioPlayerCommand extends Command<int> {
   /// {@macro dart_vader_cli_base_audio_player_command}
-  BaseAudioPlayerCommand(this._logger, this._audioPlayerService);
+  BaseAudioPlayerCommand(this.logger, this._audioPlayerService);
 
   /// The name of the audio asset file to be played.
   /// Must be implemented by subclasses to specify which audio file to use.
@@ -26,7 +26,7 @@ abstract class BaseAudioPlayerCommand extends Command<int> {
 
   /// Logger instance used for output and status messages
   @protected
-  final Logger _logger;
+  final Logger logger;
 
   /// Executes the platform-specific audio playback command
   /// Must be implemented by subclasses to handle actual audio playback
@@ -41,7 +41,7 @@ abstract class BaseAudioPlayerCommand extends Command<int> {
       await playCommand();
       return ExitCode.success.code;
     } on Exception catch (e) {
-      _logger.alert('Error playing audio: $e');
+      logger.alert('Error playing audio: $e');
       return ExitCode.software.code;
     }
   }
