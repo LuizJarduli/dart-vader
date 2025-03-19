@@ -26,7 +26,7 @@ class DartVaderCliCommandRunner extends CompletionCommandRunner<int> {
 
   final AudioPlayerService _audioPlayerService;
 
-  static String get _executableName => 'dart_vader';
+  static String get _executableName => 'dart_vader_cli';
 
   static String get _description =>
       '''Darth Vader \u{2015} may the code break with you!''';

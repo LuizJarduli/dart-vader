@@ -1,4 +1,4 @@
 // Generated code. Do not modify.
 
 /// Current installed package version
-const packageVersion = '0.0.1';
+const packageVersion = '1.0.0';
