@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:io';
 
 import 'package:args/command_runner.dart';
 import 'package:dart_vader_cli/src/commands/base_audio_player.dart';
@@ -27,14 +28,22 @@ class VersionCommand extends BaseAudioPlayerCommand {
 
   @override
   FutureOr<int> run() async {
-    final figletText = red.wrap(await FigletLog.getText(_packageName));
+    try {
+      final figletText = red.wrap(await FigletLog.getText(_packageName));
 
-    logger
-      ..info(figletText)
-      ..info('Dart vader cli version: $packageVersion');
+      logger
+        ..info(figletText)
+        ..info('Dart vader cli version: $packageVersion');
 
-    await playCommand();
+      await playCommand();
 
-    return ExitCode.success.code;
+      return ExitCode.success.code;
+    } on PathNotFoundException catch (e) {
+      logger.alert('Error rendering figlet: $e');
+      return ExitCode.osFile.code;
+    } on Exception catch (e) {
+      logger.alert('Error rendering figlet: $e');
+      return ExitCode.software.code;
+    }
   }
 }
