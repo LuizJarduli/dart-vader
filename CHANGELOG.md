@@ -1,4 +1,8 @@
 
+## 1.0.3
+
+- fixed README link to pub.dev.
+
 ## 1.0.2
 
 - Better documentation.
