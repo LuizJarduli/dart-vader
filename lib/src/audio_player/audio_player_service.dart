@@ -16,7 +16,15 @@ class AudioPlayerService {
   /// The absolute path to the audio asset file
   /// Constructs path based on current directory and asset name
   String _absoluteAssetPath(String assetPath) {
-    final assetsDir = '${Directory.current.path}/lib/src/assets';
+    // Get the directory of the current script or executable
+    final scriptDir = p.dirname(Platform.script.toFilePath());
+
+    // Go up from bin to root directory
+    final rootDir = p.dirname(scriptDir);
+
+    // Construct path to assets directory
+    final assetsDir = p.join(rootDir, 'lib', 'src', 'assets');
+
     return p.join(assetsDir, assetPath);
   }
 
