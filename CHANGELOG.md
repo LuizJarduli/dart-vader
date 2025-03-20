@@ -1,4 +1,10 @@
 
+## 1.0.4
+
+- Fixed figlet log path.
+- Fixed version command.
+- Fixed overall path handling for assets.
+
 ## 1.0.3
 
 - fixed README link to pub.dev.

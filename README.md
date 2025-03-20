@@ -51,9 +51,6 @@ Built following MVVM and Clean Architecture principles:
 
 - `cli_completion` - For command auto-completion
 - `mason_logger` - Structured logging and CLI output
-- Platform-specific audio libraries:
-  - Windows: `windows_audio`
-  - macOS/Linux: `audioplayers`
 
 ### Error Handling
 
