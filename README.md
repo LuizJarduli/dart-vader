@@ -16,7 +16,7 @@ dart pub global activate dart_vader_cli
 ```
 
 ```bash
-dart_vader --help
+dart_vader_cli --help
 ```
 
 ## Additional information

@@ -1,4 +1,8 @@
 
+## 1.0.2
+
+- Better documentation.
+
 ## 1.0.1
 
 - Fixed executable name.
