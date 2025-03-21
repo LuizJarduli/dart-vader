@@ -23,7 +23,7 @@ class AudioPlayerService {
     final rootDir = p.dirname(scriptDir);
 
     // Construct path to assets directory
-    final assetsDir = p.join(rootDir, 'lib', 'src', 'assets');
+    final assetsDir = p.join(rootDir, 'assets');
 
     return p.join(assetsDir, assetPath);
   }

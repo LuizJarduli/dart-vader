@@ -10,8 +10,6 @@ class FigletLog {
   static Future<Font> _retrieveFont() async {
     final assetsDir = p.join(
       p.dirname(p.dirname(Platform.script.toFilePath())),
-      'lib',
-      'src',
       'assets',
     );
     final file = await File(p.join(assetsDir, 'doom.flf')).readAsString();
