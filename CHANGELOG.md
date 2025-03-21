@@ -1,3 +1,6 @@
+## 1.0.5
+
+- Fixed assets path.
 
 ## 1.0.4
 
