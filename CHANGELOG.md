@@ -1,3 +1,7 @@
+## 1.0.6
+
+- Fixed assets path.
+- Fixed version command.
 ## 1.0.5
 
 - Fixed assets path.

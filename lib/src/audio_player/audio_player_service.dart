@@ -20,12 +20,9 @@ class AudioPlayerService {
     final scriptDir = p.dirname(Platform.script.toFilePath());
 
     // Go up from bin to root directory
-    final rootDir = p.dirname(scriptDir);
+    final rootDir = p.join(scriptDir, 'assets');
 
-    // Construct path to assets directory
-    final assetsDir = p.join(rootDir, 'assets');
-
-    return p.join(assetsDir, assetPath);
+    return p.join(rootDir, assetPath);
   }
 
   /// Plays the audio asset

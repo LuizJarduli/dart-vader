@@ -8,11 +8,9 @@ import 'package:path/path.dart' as p;
 /// {@endtemplate}
 class FigletLog {
   static Future<Font> _retrieveFont() async {
-    final assetsDir = p.join(
-      p.dirname(p.dirname(Platform.script.toFilePath())),
-      'assets',
-    );
-    final file = await File(p.join(assetsDir, 'doom.flf')).readAsString();
+    final assetsDir = p.dirname(Platform.script.toFilePath());
+    final file =
+        await File(p.join(assetsDir, 'assets', 'doom.flf')).readAsString();
     return Font.text(file);
   }
 
