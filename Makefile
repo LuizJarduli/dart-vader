@@ -27,6 +27,7 @@ build: verify
 	@echo "🚀 Building project..."
 	@$(DART) pub get
 	@$(DART) run build_runner build --delete-conflicting-outputs
+	@$(DART) run tool/generate_audio_assets.dart
 	@echo "✅ Build completed"
 
 clean:
