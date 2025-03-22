@@ -1,17 +1,17 @@
 import 'dart:io';
 
+import 'package:dart_vader_cli/src/binary_asset/binary_asset_service.dart';
+import 'package:dart_vader_cli/src/constants/audio_assets.dart';
 import 'package:enough_ascii_art/enough_ascii_art.dart' show Font, renderFiglet;
-import 'package:path/path.dart' as p;
 
 /// {@template dart_vader_cli_figlet}
 /// A wrapper class for ASCII art rendering functionality
 /// {@endtemplate}
 class FigletLog {
   static Future<Font> _retrieveFont() async {
-    final assetsDir = p.dirname(Platform.script.toFilePath());
-    final file =
-        await File(p.join(assetsDir, 'assets', 'doom.flf')).readAsString();
-    return Font.text(file);
+    final file = await BinaryAssetService.getAssetPath(AOTAssets.doomKey);
+    final font = await file.readAsString();
+    return Font.text(font);
   }
 
   /// Renders the given [text] as ASCII art

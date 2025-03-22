@@ -1,7 +1,7 @@
 import 'dart:io';
 
 import 'package:dart_vader_cli/src/audio_player/audio_player.dart';
-import 'package:path/path.dart' as p;
+import 'package:dart_vader_cli/src/binary_asset/binary_asset_service.dart';
 
 /// {@template dart_vader_cli_audio_player_service}
 /// Service for playing audio assets.
@@ -13,26 +13,14 @@ class AudioPlayerService {
   /// The audio player instance
   final AudioPlayer audioPlayer;
 
-  /// The absolute path to the audio asset file
-  /// Constructs path based on current directory and asset name
-  String _absoluteAssetPath(String assetPath) {
-    // Get the directory of the current script or executable
-    final scriptDir = p.dirname(Platform.script.toFilePath());
-
-    // Go up from bin to root directory
-    final rootDir = p.join(scriptDir, 'assets');
-
-    return p.join(rootDir, assetPath);
-  }
-
   /// Plays the audio asset
   ///
   /// Throws [_MissingAssetException] if the asset file doesn't exist
   /// Throws [_AudioPlaybackException] if the audio playback fails
   Future<void> play(String assetName) async {
     try {
-      final assetPath = await _validateAsset(assetName);
-      final exitCode = await audioPlayer.play(assetPath);
+      final File(:path) = await BinaryAssetService.getAssetPath(assetName);
+      final exitCode = await audioPlayer.play(path);
 
       switch (exitCode) {
         case 0:
@@ -41,25 +29,12 @@ class AudioPlayerService {
           throw const _MissingAssetException();
         default:
           throw _AudioPlaybackException(
-            'Failed to play audio with exit code $exitCode: $assetPath',
+            'Failed to play audio with exit code $exitCode: $path',
           );
       }
     } on Exception catch (_) {
       rethrow;
     }
-  }
-
-  /// Validates and plays the audio asset
-  ///
-  /// Throws [_MissingAssetException] if the asset file doesn't exist
-  Future<String> _validateAsset(String assetName) async {
-    final assetPath = _absoluteAssetPath(assetName);
-
-    if (!File(assetPath).existsSync()) {
-      throw const _MissingAssetException();
-    }
-
-    return assetPath;
   }
 }
 

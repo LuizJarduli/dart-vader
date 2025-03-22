@@ -3,6 +3,7 @@ import 'dart:io';
 
 import 'package:args/command_runner.dart';
 import 'package:dart_vader_cli/src/commands/base_audio_player.dart';
+import 'package:dart_vader_cli/src/constants/audio_assets.dart';
 import 'package:dart_vader_cli/src/utils/figlet_log.dart';
 import 'package:dart_vader_cli/src/version.dart';
 import 'package:mason_logger/mason_logger.dart';
@@ -22,7 +23,7 @@ class VersionCommand extends BaseAudioPlayerCommand {
   String get name => 'version';
 
   @override
-  String get assetName => 'dart_vader_imperial_theme.mp3';
+  String get assetName => AOTAssets.imperialMarchKey;
 
   String get _packageName => 'Dart Vader Cli';
 

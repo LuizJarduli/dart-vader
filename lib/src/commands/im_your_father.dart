@@ -1,4 +1,5 @@
 import 'package:dart_vader_cli/src/commands/base_audio_player.dart';
+import 'package:dart_vader_cli/src/constants/audio_assets.dart';
 
 /// {@template dart_vader_cli_im_your_father_command}
 /// Darth Vader says "I am your father" [BaseAudioPlayerCommand]
@@ -8,7 +9,7 @@ class ImYourFatherCommand extends BaseAudioPlayerCommand {
   ImYourFatherCommand(super.logger, super.audioPlayerService);
 
   @override
-  String get assetName => 'dart_vader_im_your_father.mp3';
+  String get assetName => AOTAssets.vaderImYourFatherKey;
 
   @override
   String get description => 'Darth Vader says "I am your father"';

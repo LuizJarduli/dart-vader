@@ -40,6 +40,9 @@ abstract class BaseAudioPlayerCommand extends Command<int> {
     try {
       await playCommand();
       return ExitCode.success.code;
+    } on FormatException catch (e) {
+      logger.alert('Error while mounting audio file: $e');
+      return ExitCode.software.code;
     } on Exception catch (e) {
       logger.alert('Error playing audio: $e');
       return ExitCode.software.code;
