@@ -1,7 +1,17 @@
+
+## 1.1.0
+
+- Complete refactor of the project.
+- AOT assets are now generated from the assets folder.
+- Added Makefile to help with the development process.
+- Added analysis options to help with the analysis process.
+- Added a publish command to help with the publishing process.
+
 ## 1.0.6
 
 - Fixed assets path.
 - Fixed version command.
+
 ## 1.0.5
 
 - Fixed assets path.
