@@ -1,6 +1,6 @@
 name: dart_vader_cli
 description: A for fun project to make use of my studies of making executable dart packages.
-version: 1.1.0
+version: 1.1.1
 repository: https://github.com/LuizJarduli/dart-vader
 homepage: https://github.com/LuizJarduli/dart-vader
 issue_tracker: https://github.com/LuizJarduli/dart-vader/issues
@@ -13,7 +13,7 @@ topics:
   - dark-side
 
 environment:
-  sdk: ^3.7.2
+  sdk: ^3.0.0
 
 # Add regular dependencies here.
 dependencies:
