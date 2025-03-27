@@ -1,3 +1,6 @@
+## 1.1.1
+
+- Lower SDK constraint to 3.0.0
 
 ## 1.1.0
 
