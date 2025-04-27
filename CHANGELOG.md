@@ -1,3 +1,7 @@
+## 1.1.2
+
+- Only support Dart Sdk above 3.6.0, reverts the 1.1.1 patch
+
 ## 1.1.1
 
 - Lower SDK constraint to 3.0.0
