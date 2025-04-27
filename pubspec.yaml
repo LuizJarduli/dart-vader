@@ -20,7 +20,7 @@ dependencies:
   args: ^2.5.0
   cli_completion: ^0.5.1
   enough_ascii_art: ^1.1.0
-  mason_logger: ^0.3.3
+  mason_logger: ^0.3.2
   meta: ^1.16.0
   path: ^1.9.1
 

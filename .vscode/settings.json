@@ -1,9 +1,10 @@
 {
-    "cSpell.words": [
-        "ascii",
-        "figlet",
-        "Figlet",
-        "linux",
-        "vader"
-    ]
+  "cSpell.words": [
+    "ascii",
+    "figlet",
+    "Figlet",
+    "linux",
+    "vader"
+  ],
+  "dart.flutterSdkPath": ".fvm/versions/3.27.1"
 }
